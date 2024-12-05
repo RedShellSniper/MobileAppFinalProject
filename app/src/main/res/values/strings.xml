@@ -2,13 +2,13 @@
     <string name="app_name">FinalProject</string>
     <string name="journal_app">Journal App</string>
     <string name="view_entries">View Entries</string>
-    <string name="date_in_mm_dd_yyyy_format">Date (in mm/dd/yyyy format)</string>
+    <string name="date_in_mm_dd_yyyy_format">Date (mm/dd/yyyy)</string>
     <string name="time">Time</string>
     <string name="location">Location</string>
     <string name="mood">Mood</string>
     <string name="thoughts">Thoughts</string>
     <string name="add_entries">Add Entries</string>
-    <string name="view_entry_stats">View Entry Stats</string>
+    <string name="view_entry_stats">View Journal Stats</string>
     <string name="date">Date:</string>
     <string name="timeV">Time:</string>
     <string name="locationV">Location:</string>
@@ -16,4 +16,7 @@
     <string name="thoughtsV">Thoughts:</string>
     <string name="addEntry">Add Entry</string>
     <string name="deleteEntry">Delete Entry</string>
+    <string name="statistic1">Stat:</string>
+    <string name="statistic2">Stat:</string>
+    <string name="statistic3">Stat:</string>
 </resources>

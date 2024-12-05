@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,83 +8,161 @@
 
 
     <!-- I might do something with this button later -->
-    <Button
+
+    <!-- <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Button" />
+        android:layout_marginBottom="683dp"
+        android:hint="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" /> -->
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/view_entries" />
+        android:layout_marginStart="268dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="37dp"
+        android:text="@string/view_entries"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deleteEntry" />
 
     <Button
         android:id="@+id/addEntry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/addEntry" />
+        android:layout_marginStart="31dp"
+        android:layout_marginBottom="142dp"
+        android:text="@string/addEntry"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/deleteEntry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/deleteEntry" />
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="412dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="33dp"
+        android:text="@string/deleteEntry"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addEntry"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginBottom="412dp"
         android:autofillHints=""
         android:ems="10"
+        android:hint="@string/date_in_mm_dd_yyyy_format"
         android:inputType="text"
-        android:hint="@string/date_in_mm_dd_yyyy_format" />
-
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:ems="10"
-        android:inputType="text"
-        android:hint="@string/time" />
-
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:ems="10"
-        android:inputType="text"
-        android:hint="@string/location" />
-
-    <EditText
-        android:id="@+id/editText4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:ems="10"
-        android:inputType="text"
-        android:hint="@string/mood" />
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/addEntry"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- To-do: implement optional editText -->
-    <EditText
+
+    <!-- <EditText
         android:id="@+id/editText5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autofillHints=""
         android:ems="10"
         android:inputType="text"
-        android:text="Name" />
+        android:text="Name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/> -->
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="26dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/time"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/editText3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="27dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/location"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/editText4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="24dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/mood"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/editText6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText3" />
 
     <EditText
         android:id="@+id/editText6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="95dp"
         android:autofillHints=""
         android:ems="10"
+        android:hint="@string/thoughts"
         android:inputType="text"
-        android:hint="@string/thoughts" />
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/addEntry"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
