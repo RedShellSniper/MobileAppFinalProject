@@ -17,14 +17,15 @@ import android.widget.Button;
  */
 public class ViewEntries extends Fragment implements View.OnClickListener {
 
-    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String DAY = "param1";
+    private static final String TIME = "param2";
+    private static final String LOCATION = "param3";
+    private static final String MOOD = "param4";
+    private static final String THOUGHTS = "param5";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private String day, time, location, mood, thoughts;
+    private Button button3, button4;
 
     public ViewEntries() {
         // Required empty public constructor
@@ -38,12 +39,16 @@ public class ViewEntries extends Fragment implements View.OnClickListener {
      * @param param2 Parameter 2.
      * @return A new instance of fragment ViewEntries.
      */
-    // TODO: Rename and change types and number of parameters
-    public static ViewEntries newInstance(String param1, String param2) {
+
+
+    public static ViewEntries newInstance(String param1, String param2, String param3, String param4, String param5) {
         ViewEntries fragment = new ViewEntries();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString(DAY, param1);
+        args.putString(TIME, param2);
+        args.putString(LOCATION, param3);
+        args.putString(MOOD, param4);
+        args.putString(THOUGHTS, param5);
         fragment.setArguments(args);
         return fragment;
     }
@@ -52,8 +57,11 @@ public class ViewEntries extends Fragment implements View.OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            day = getArguments().getString(DAY);
+            time = getArguments().getString(TIME);
+            location = getArguments().getString(LOCATION);
+            mood = getArguments().getString(MOOD);
+            thoughts = getArguments().getString(THOUGHTS);
         }
     }
 
@@ -62,9 +70,9 @@ public class ViewEntries extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_view_entries, container, false);
-        Button button3 = view.findViewById(R.id.button3);
+        button3 = view.findViewById(R.id.button3);
         button3.setOnClickListener(this);
-        Button button4 = view.findViewById(R.id.button4);
+        button4 = view.findViewById(R.id.button4);
         button4.setOnClickListener(this);
         return view;
     }

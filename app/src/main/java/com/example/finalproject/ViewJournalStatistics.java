@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,14 +18,16 @@ import android.widget.Button;
  */
 public class ViewJournalStatistics extends Fragment implements View.OnClickListener {
 
-    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String DAY = "param1";
+    private static final String TIME = "param2";
+    private static final String LOCATION = "param3";
+    private static final String MOOD = "param4";
+    private static final String THOUGHTS = "param5";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private String day, time, location, mood, thoughts;
+    private Button button5;
+    //private TextView stat1, stat2, stat3;
 
     public ViewJournalStatistics() {
         // Required empty public constructor
@@ -38,12 +41,15 @@ public class ViewJournalStatistics extends Fragment implements View.OnClickListe
      * @param param2 Parameter 2.
      * @return A new instance of fragment ViewJournalStatistics.
      */
-    // TODO: Rename and change types and number of parameters
-    public static ViewJournalStatistics newInstance(String param1, String param2) {
+
+    public static ViewJournalStatistics newInstance(String param1, String param2, String param3, String param4, String param5) {
         ViewJournalStatistics fragment = new ViewJournalStatistics();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString(DAY, param1);
+        args.putString(TIME, param2);
+        args.putString(LOCATION, param3);
+        args.putString(MOOD, param4);
+        args.putString(THOUGHTS, param5);
         fragment.setArguments(args);
         return fragment;
     }
@@ -52,8 +58,11 @@ public class ViewJournalStatistics extends Fragment implements View.OnClickListe
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            day = getArguments().getString(DAY);
+            time = getArguments().getString(TIME);
+            location = getArguments().getString(LOCATION);
+            mood = getArguments().getString(MOOD);
+            thoughts = getArguments().getString(THOUGHTS);
         }
     }
 
@@ -62,7 +71,7 @@ public class ViewJournalStatistics extends Fragment implements View.OnClickListe
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_view_journal_statistics, container, false);
-        Button button5 = view.findViewById(R.id.button5);
+        button5 = view.findViewById(R.id.button5);
         button5.setOnClickListener(this);
         return view;
     }
