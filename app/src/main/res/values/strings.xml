@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">FinalProject</string>
+    <string name="journal_app">Journal App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="view_entries">View Entries</string>
+    <string name="date_in_mm_dd_yyyy_format">Date (in mm/dd/yyyy format)</string>
+    <string name="time">Time</string>
+    <string name="location">Location</string>
+    <string name="mood">Mood</string>
+    <string name="thoughts">Thoughts</string>
+    <string name="add_entries">Add Entries</string>
+    <string name="view_entry_stats">View Entry Stats</string>
+    <string name="date">Date:</string>
+    <string name="timeV">Time:</string>
+    <string name="locationV">Location:</string>
+    <string name="moodV">Mood:</string>
+    <string name="thoughtsV">Thoughts:</string>
+    <string name="addEntry">Add Entry</string>
+    <string name="deleteEntry">Delete Entry</string>
+</resources>

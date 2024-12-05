@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:id="@+id/nav_graph"
+             app:startDestination="@id/add_entry">
+
+    <!-- Controls the navigation between fragment 1 and 2 -->
+    <fragment
+        android:id="@+id/add_entry"
+        android:name="com.example.finalproject.AddEntry"
+        android:label="fragment_add_entry"
+        tools:layout="@layout/fragment_add_entry" >
+
+        <action
+            android:id="@+id/action_add_entry_to_view_entries"
+            app:destination="@+id/view_entries" />
+    </fragment>
+
+    <!-- Controls the navigation between fragment 2, 1 and 3 -->
+    <fragment
+        android:id="@+id/view_entries"
+        android:name="com.example.finalproject.ViewEntries"
+        android:label="fragment_view_entries"
+        tools:layout="@layout/fragment_view_entries" >
+
+        <action
+            android:id="@+id/action_view_entries_to_view_journal_statistics"
+            app:destination="@+id/view_journal_statistics" />
+
+        <action
+            android:id="@+id/action_view_entries_to_add_entry"
+            app:destination="@+id/add_entry" />
+    </fragment>
+
+    <!-- Controls the navigation between fragment 3 and 2 -->
+    <fragment
+        android:id="@+id/view_journal_statistics"
+        android:name="com.example.finalproject.ViewJournalStatistics"
+        android:label="fragment_view_journal_statistics"
+        tools:layout="@layout/fragment_view_journal_statistics" >
+
+        <action
+            android:id="@+id/action_view_journal_statistics_to_view_entries"
+            app:destination="@+id/view_entries" />
+    </fragment>
+</navigation>
