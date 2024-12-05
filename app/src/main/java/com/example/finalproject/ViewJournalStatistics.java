@@ -70,7 +70,7 @@ public class ViewJournalStatistics extends Fragment implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.button5) {
-            Navigation.findNavController(v).navigate(R.id.action_view_contact_information_to_enter_contact_information);
+            Navigation.findNavController(v).navigate(R.id.action_view_journal_statistics_to_view_entries);
         }
     }
 }

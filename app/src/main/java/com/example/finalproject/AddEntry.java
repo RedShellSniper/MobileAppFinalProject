@@ -71,7 +71,7 @@ public class AddEntry extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.button2) {
-            Navigation.findNavController(v).navigate(R.id.action_view_contact_information_to_enter_contact_information);
+            Navigation.findNavController(v).navigate(R.id.action_add_entry_to_view_entries);
         }
     }
 }
