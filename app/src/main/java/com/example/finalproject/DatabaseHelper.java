@@ -20,7 +20,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_STATUS = "status";
 
     public DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 0);
+        super(context, DATABASE_NAME, null, 1);
     }
 
     @Override

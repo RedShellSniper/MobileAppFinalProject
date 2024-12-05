@@ -25,10 +25,10 @@ public class AddEntry extends Fragment implements View.OnClickListener {
     private static final String MOOD = "param4";
     private static final String THOUGHTS = "param5";
 
-    // TODO: Rename and change types of parameters
     private String day, time, location, mood, thoughts;
-    private Button button2;
-
+    private Button button2, addButton, deleteButton;
+    private DatabaseHelper databaseHelper;
+    private int selectedTaskIndex = -1;
 
     public AddEntry() {
         // Required empty public constructor
@@ -58,6 +58,8 @@ public class AddEntry extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        databaseHelper = new DatabaseHelper(getContext());
         if (getArguments() != null) {
             day = getArguments().getString(DAY);
             time = getArguments().getString(TIME);
@@ -74,6 +76,10 @@ public class AddEntry extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.fragment_add_entry, container, false);
         button2 = view.findViewById(R.id.button2);
         button2.setOnClickListener(this);
+        addButton = view.findViewById(R.id.addEntry);
+        addButton.setOnClickListener(this);
+        deleteButton = view.findViewById(R.id.deleteEntry);
+        deleteButton.setOnClickListener(this);
         return view;
     }
 
@@ -81,6 +87,27 @@ public class AddEntry extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         if (v.getId() == R.id.button2) {
             Navigation.findNavController(v).navigate(R.id.action_add_entry_to_view_entries);
+        }
+
+        if (v.getId() == R.id.addEntry) {
+            //String task = taskInput.getText().toString();
+            //if (!task.isEmpty()) {
+                //databaseHelper.insertData(task,isCompleted);
+                //tasksList.clear();
+                //tasksList.addAll(databaseHelper.getAllEntries());
+                //adapter.notifyDataSetChanged();
+                //taskInput.setText("");
+            //}
+        }
+
+        if (v.getId() == R.id.deleteEntry) {
+            if (selectedTaskIndex != -1) {
+                databaseHelper.deleteEntry(selectedTaskIndex + 1); // ID is 1-based
+                //tasksList.clear();
+                //tasksList.addAll(databaseHelper.getAllTasks());
+                //adapter.notifyDataSetChanged();
+                selectedTaskIndex = -1;
+            }
         }
     }
 }
