@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
 
-        databaseHelper = new DatabaseHelper(this);
+        //databaseHelper = new DatabaseHelper(this);
         //entryInput = findViewById(R.id.taskEditText);
         //RecyclerView entriesRecyclerView = findViewById(R.id.entriesRecyclerView);
 
