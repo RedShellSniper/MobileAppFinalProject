@@ -12,13 +12,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.util.ArrayList;
+import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AddEntry#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class AddEntry extends Fragment implements View.OnClickListener {
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,32 +27,13 @@ public class AddEntry extends Fragment implements View.OnClickListener {
     private Button button2, addButton;
     private DatabaseHelper databaseHelper;
     private EditText vDay, vTime, vLocation, vMood, vThoughts;
-    private ArrayList<String> entriesList;
+    private List<JournalData> entriesList;
+    private ListAdapter adapter;
 
     public AddEntry() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AddEntry.
-     */
-
-    public static AddEntry newInstance(String param1, String param2, String param3, String param4, String param5) {
-        AddEntry fragment = new AddEntry();
-        Bundle args = new Bundle();
-        args.putString(DAY, param1);
-        args.putString(TIME, param2);
-        args.putString(LOCATION, param3);
-        args.putString(MOOD, param4);
-        args.putString(THOUGHTS, param5);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -91,6 +67,7 @@ public class AddEntry extends Fragment implements View.OnClickListener {
         vMood = view.findViewById(R.id.editText4);
         vThoughts = view.findViewById(R.id.editText6);
 
+        adapter = new ListAdapter(entriesList);
         return view;
     }
 
@@ -107,10 +84,11 @@ public class AddEntry extends Fragment implements View.OnClickListener {
             String mood = vMood.getText().toString();
             String thoughts = vThoughts.getText().toString();
 
-            if (!day.isEmpty()) {
+            if (!day.isEmpty() && !time.isEmpty() && !location.isEmpty() && !mood.isEmpty() && !thoughts.isEmpty()) {
                 databaseHelper.insertData(day, time, location, mood, thoughts);
                 entriesList.clear();
                 entriesList.addAll(databaseHelper.getAllEntries());
+                adapter.notifyDataSetChanged();
 
                 vDay.setText("");
                 vTime.setText("");

@@ -1,5 +1,6 @@
 package com.example.finalproject;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -7,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "entries.db";
@@ -17,10 +19,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_LOCATION = "location";
     private static final String COLUMN_MOOD = "mood";
     private static final String COLUMN_THOUGHTS = "thoughts";
-    private static final String COLUMN_STATUS = "status";
 
     public DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, 3);
     }
 
     @Override
@@ -31,8 +32,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_TIME + " TEXT, " +
                 COLUMN_LOCATION + " TEXT, " +
                 COLUMN_MOOD + " TEXT, " +
-                COLUMN_THOUGHTS + " TEXT, " +
-                COLUMN_STATUS + " BOOLEAN )";
+                COLUMN_THOUGHTS + " TEXT )";
         db.execSQL(createTable);
     }
 
@@ -54,13 +54,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result != -1; // returns true if data is inserted successfully
     }
 
-    public ArrayList<String> getAllEntries() {
-        ArrayList<String> entriesList = new ArrayList<>();
+    public List<JournalData> getAllEntries() {
+        List<JournalData> entriesList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+
         if (cursor.moveToFirst()) {
             do {
-                entriesList.add(cursor.getString(1));
+                @SuppressLint("Range") String day = cursor.getString(cursor.getColumnIndex(COLUMN_DAY));
+                @SuppressLint("Range") String time = cursor.getString(cursor.getColumnIndex(COLUMN_TIME));
+                @SuppressLint("Range") String location = cursor.getString(cursor.getColumnIndex(COLUMN_LOCATION));
+                @SuppressLint("Range") String mood = cursor.getString(cursor.getColumnIndex(COLUMN_MOOD));
+                @SuppressLint("Range") String thoughts = cursor.getString(cursor.getColumnIndex(COLUMN_THOUGHTS));
+
+                JournalData journalData = new JournalData(day, time, location, mood, thoughts);
+                entriesList.add(journalData);
             } while (cursor.moveToNext());
         }
         cursor.close();

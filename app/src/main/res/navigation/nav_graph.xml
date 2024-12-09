@@ -44,4 +44,5 @@
             android:id="@+id/action_view_journal_statistics_to_view_entries"
             app:destination="@+id/view_entries" />
     </fragment>
+
 </navigation>
