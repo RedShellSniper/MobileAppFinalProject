@@ -27,14 +27,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="268dp"
-        android:layout_marginTop="33dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="37dp"
         android:text="@string/view_entries"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deleteEntry" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/addEntry"
@@ -45,20 +43,6 @@
         android:text="@string/addEntry"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/deleteEntry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="115dp"
-        android:layout_marginTop="412dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="33dp"
-        android:text="@string/deleteEntry"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/addEntry"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
     <EditText
         android:id="@+id/editText"
@@ -108,6 +92,7 @@
         android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/editText3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText" />
 
