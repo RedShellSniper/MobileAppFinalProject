@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ViewJournalStatistics">
+    <include layout="@layout/toolbar"/>
 
     <!-- To-do: Journal Stats -->
     <Button

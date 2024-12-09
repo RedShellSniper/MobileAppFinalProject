@@ -28,24 +28,23 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final JournalData journalData = journaldata[position];
-        holder.textView.setText(journaldata[position].getDay());
-        //holder.imageView.setImageResource(journalData[position].getImgId());
+        //final JournalData journalData = journaldata[position];
+        holder.textView.setText(journaldata[position].getEntry());
     }
 
     @Override
     public int getItemCount() { return journaldata.length; }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        //public ImageView imageView;
+        public ImageView imageView;
         public TextView textView;
-        //public RelativeLayout relativeLayout;
+        public RelativeLayout relativeLayout;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            //this.imageView = itemView.findViewById(R.id.imageView);
+            this.imageView = itemView.findViewById(R.id.imageView);
             this.textView = itemView.findViewById(R.id.textView);
-            //relativeLayout = itemView.findViewById(R.id.relativeLayout);
+            relativeLayout = itemView.findViewById(R.id.relativeLayout2);
         }
     }
 }

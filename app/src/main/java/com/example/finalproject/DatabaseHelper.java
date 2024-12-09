@@ -42,7 +42,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertData(String day, String time, String location, String mood, String thoughts, boolean status) {
+    public boolean insertData(String day, String time, String location, String mood, String thoughts) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_DAY, day);
@@ -50,7 +50,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COLUMN_LOCATION, location);
         contentValues.put(COLUMN_MOOD, mood);
         contentValues.put(COLUMN_THOUGHTS, thoughts);
-        contentValues.put(COLUMN_STATUS, status);
         long result = db.insert(TABLE_NAME, null, contentValues);
         return result != -1; // returns true if data is inserted successfully
     }
@@ -67,25 +66,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         return entriesList;
     }
-
-    public void deleteEntry(int id) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_NAME, COLUMN_ID + "=?", new String[]{String.valueOf(id)});
-    }
-
-    // Updates the status of the state of completeness of a particular entry
-    /*public void updateEntryCompleteness(int id, boolean status) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(COLUMN_STATUS, status ? 1 : 0);
-        String entry;
-
-        if(status) {
-            entry = "Complete!";
-            contentValues.put(COLUMN_entry, entry);
-        }
-
-        db.update(TABLE_NAME, contentValues, COLUMN_ID + "=?", new String[]{String.valueOf(id)});
-        db.close();
-    }*/
 }

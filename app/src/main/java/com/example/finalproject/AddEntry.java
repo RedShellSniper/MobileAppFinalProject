@@ -10,6 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,9 +29,10 @@ public class AddEntry extends Fragment implements View.OnClickListener {
     private static final String THOUGHTS = "param5";
 
     private String day, time, location, mood, thoughts;
-    private Button button2, addButton, deleteButton;
+    private Button button2, addButton;
     private DatabaseHelper databaseHelper;
-    private int selectedTaskIndex = -1;
+    private EditText vDay, vTime, vLocation, vMood, vThoughts;
+    private ArrayList<String> entriesList;
 
     public AddEntry() {
         // Required empty public constructor
@@ -60,6 +64,7 @@ public class AddEntry extends Fragment implements View.OnClickListener {
         super.onCreate(savedInstanceState);
 
         databaseHelper = new DatabaseHelper(getContext());
+        entriesList = databaseHelper.getAllEntries();
         if (getArguments() != null) {
             day = getArguments().getString(DAY);
             time = getArguments().getString(TIME);
@@ -74,12 +79,18 @@ public class AddEntry extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_add_entry, container, false);
+
         button2 = view.findViewById(R.id.button2);
         button2.setOnClickListener(this);
         addButton = view.findViewById(R.id.addEntry);
         addButton.setOnClickListener(this);
-        deleteButton = view.findViewById(R.id.deleteEntry);
-        deleteButton.setOnClickListener(this);
+
+        vDay = view.findViewById(R.id.editText);
+        vTime = view.findViewById(R.id.editText2);
+        vLocation = view.findViewById(R.id.editText3);
+        vMood = view.findViewById(R.id.editText4);
+        vThoughts = view.findViewById(R.id.editText6);
+
         return view;
     }
 
@@ -90,23 +101,22 @@ public class AddEntry extends Fragment implements View.OnClickListener {
         }
 
         if (v.getId() == R.id.addEntry) {
-            //String task = taskInput.getText().toString();
-            //if (!task.isEmpty()) {
-                //databaseHelper.insertData(task,isCompleted);
-                //tasksList.clear();
-                //tasksList.addAll(databaseHelper.getAllEntries());
-                //adapter.notifyDataSetChanged();
-                //taskInput.setText("");
-            //}
-        }
+            String day = vDay.getText().toString();
+            String time = vTime.getText().toString();
+            String location = vLocation.getText().toString();
+            String mood = vMood.getText().toString();
+            String thoughts = vThoughts.getText().toString();
 
-        if (v.getId() == R.id.deleteEntry) {
-            if (selectedTaskIndex != -1) {
-                databaseHelper.deleteEntry(selectedTaskIndex + 1); // ID is 1-based
-                //tasksList.clear();
-                //tasksList.addAll(databaseHelper.getAllTasks());
-                //adapter.notifyDataSetChanged();
-                selectedTaskIndex = -1;
+            if (!day.isEmpty()) {
+                databaseHelper.insertData(day, time, location, mood, thoughts);
+                entriesList.clear();
+                entriesList.addAll(databaseHelper.getAllEntries());
+
+                vDay.setText("");
+                vTime.setText("");
+                vLocation.setText("");
+                vMood.setText("");
+                vThoughts.setText("");
             }
         }
     }

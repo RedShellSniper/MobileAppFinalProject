@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ViewEntries">
+    <include layout="@layout/toolbar"/>
 
     <Button
         android:id="@+id/button3"
@@ -15,8 +16,6 @@
         android:text="@string/add_entries"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <!-- To-do: implement optional editText -->
 
     <Button
         android:id="@+id/button4"
@@ -37,14 +36,6 @@
         android:text="@string/date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="136dp"
-        tools:layout_editor_absoluteY="285dp" /> -->
 
     <TextView
         android:id="@+id/textView3"
@@ -96,6 +87,7 @@
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.333" />
+        app:layout_constraintVertical_bias="0.333"
+        android:id="@+id/recyclerView"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
