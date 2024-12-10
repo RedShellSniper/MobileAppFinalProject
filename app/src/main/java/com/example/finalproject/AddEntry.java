@@ -34,7 +34,6 @@ public class AddEntry extends Fragment implements View.OnClickListener {
         // Required empty public constructor
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

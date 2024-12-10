@@ -3,7 +3,7 @@ package com.example.finalproject;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,7 +22,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View listItem = layoutInflater.inflate(R.layout.fragment_view_entries, parent, false);
+        View listItem = layoutInflater.inflate(R.layout.list_entries, parent, false);
         return new ViewHolder(listItem);
     }
 
@@ -42,7 +42,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView textViewDay, textViewTime, textViewLocation, textViewMood, textViewThoughts;
-        public RelativeLayout relativeLayout;
+        public LinearLayout linearLayout;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -51,7 +51,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             this.textViewLocation = itemView.findViewById(R.id.textViewLocation);
             this.textViewMood = itemView.findViewById(R.id.textViewMood);
             this.textViewThoughts = itemView.findViewById(R.id.textViewThoughts);
-            relativeLayout = itemView.findViewById(R.id.relativeLayout2);
+            linearLayout = itemView.findViewById(R.id.LinearLayout);
         }
     }
 }

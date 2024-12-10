@@ -14,9 +14,11 @@ public class JournalData {
     public String getDay() {
         return day;
     }
-    public void setDay(String description) {
+
+    public void setDay(String day) {
         this.day = day;
     }
+
     public String getTime() {
         return time;
     }
@@ -30,6 +32,7 @@ public class JournalData {
     public void setLocation(String location) {
         this.location = location;
     }
+
     public String getMood() {
         return mood;
     }
