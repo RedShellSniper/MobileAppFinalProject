@@ -20,4 +20,5 @@
     <string name="statistic2">Stat:</string>
     <string name="statistic3">Stat:</string>
     <string name="icon">Icon</string>
+    <string name="defaultStat">0.0</string>
 </resources>
